@@ -3,17 +3,15 @@ package dev.tomco.a25a_10357_l04
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.textview.MaterialTextView
 import dev.tomco.a25a_10357_l04.Utilities.Constants
 import dev.tomco.a25a_10357_l04.Utilities.TimeFormatter
 import kotlinx.coroutines.Runnable
 
-class MainActivity : AppCompatActivity() {
+class HandlerRunnableActivity : AppCompatActivity() {
 
 
     private lateinit var main_LBL_time: MaterialTextView
@@ -28,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         override fun run() {
             //reschedule:
             handler.postDelayed(this, Constants.Timer.DELAY)
+            Log.d("Timer Runnable:", "" + System.currentTimeMillis())
             //refresh UI:
             updateTimerUI()
         }
@@ -41,6 +40,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Log.d("Timer Type:", "Handler + Runnable")
 
         findViews()
         initViews()
