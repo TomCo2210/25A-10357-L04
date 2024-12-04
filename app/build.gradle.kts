@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "dev.tomco.a25a_10357_l04"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "dev.tomco.a25a_10357_l04"
